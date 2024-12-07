@@ -1,1 +1,1536 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    /* LIGHT THEME */
+    --Blanco: #fff;
+    --Rojo: #e92027;
+    --RojoDark: #8b0e12;
+    --Negro: #201e1f;
+    --NegroT: rgba(32, 30, 31, 0.356);
+    --Gris: #e6e6e6;
+
+
+    /* CATEGORIAS */
+    --C-Naranja: #ffa203;
+    --C-NaranjaDark: #cc8100;
+    --C-Azul: #101584;
+    --C-Rojo: #e92027;
+    --C-Morado: #874ccc;
+    --C-Verde: #42ae70;
+
+}
+body{
+  color: var(--Negro);
+  font-family: 'Satoshi', sans-serif;
+  cursor: url(../public/RECURSOS/CURSOR/cursor03.png), auto;
+}
+html{
+  cursor: url('../public/RECURSOS/CURSOR/cursor03.png'), auto !important;
+}
+a{
+  cursor: url('../public/RECURSOS/CURSOR/uno.png'), auto !important;
+}
+button{
+  cursor: url('../public/RECURSOS/CURSOR/uno.png'), auto !important;
+}
+input{
+  cursor: url('../public/RECURSOS/CURSOR/tipo.png'), auto !important;
+}
+/* BOOTSTRAP CLASES */
+  .w-20{
+    width: 20% !important;
+  }
+  .w-30{
+    width: 30% !important;
+  }
+  .w-40{
+    width: 40% !important;
+  }
+  .w-50{
+    width: 50% !important;
+  }
+  .w-70{
+    width: 70% !important;
+  }
+  .bg-gris{
+    background-color: var(--Gris);
+  }
+  .border.border-gris{
+    border-color: var(--Gris) !important; 
+  }
+  .bg-rojodark{
+    background-color: var(--RojoDark);
+  }
+  .bg-rojo{
+    background-color: var(--Rojo);
+  }
+  .border.border-rojo{
+    border-color: var(--Rojo) !important; 
+  }
+  .bg-negro{
+    background-color: var(--Negro);
+  }
+  .border.border-negro{
+    border-color: var(--Negro) !important; 
+  }
+  .border.border-negroT{
+    border-color: var(--NegroT) !important; 
+  }
+  .color-b{
+    color: var(--Blanco);
+  }
+  .d-flexeo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .top-30{
+    top: 30%;
+  }
+  .vh-7{
+    height: 7vh;
+  }
+  .vh-10{
+    height: 10vh;
+  }
+  .vh-15{
+    height: 15vh;
+  }
+  .vh-20{
+    height: 20vh;
+  }
+  .vh-25{
+    height: 25vh;
+  }
+  .vh-30{
+    height: 30vh;
+  }
+  .vh-35{
+    height: 35vh;
+  }
+  .vh-40{
+    height: 40vh;
+  }
+  .vh-50{
+    height: 50vh;
+  }
+  .vh-55{
+    height: 55vh;
+  }
+  .vh-60{
+    height: 60vh;
+  }
+  .vh-70{
+    height: 70vh;
+  }
+  .vh-80{
+    height: 80vh;
+  }
+  .vh-90{
+    height: 90vh;
+  }
+  .h-20{
+    height: 20% !important;
+  }
+  .h-80{
+    height: 80% !important;
+  }
+  .h-65{
+    height: 65% !important;
+  }
+  .top-80{
+    top: 80% !important;
+  }
+  .general-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hoverUP:hover{
+    transform: translateY(-0.3rem);
+  }
+  .hoverLEFT:hover{
+    transform: translateX(-0.6rem);
+  }
+  .bg-blur{
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: #ffffff25;
+  }
+  .trans{
+    transition: all 0.5s;
+  }
+  .links{
+    text-decoration: none;
+  }
+  .mostrar{
+    display: block !important;
+  }
+  .ocultar{
+    display: none !important;
+  }
+/* BOOTSTRAP CLASES */
+/*? TEXTOS */
+
+p{
+  font-size: clamp(0.3rem, 0rem + 1.2vw, 1rem);
+}
+/*? TEXTOS */
+/*? BOTONES GENERALES */
+.btn-g-b{
+  background-color: var(--Blanco);
+  color: var(--Negro);
+  transition: all 0.5s;
+  font-size: clamp(0.7rem, 0.5rem + 4vw, 1.2rem);
+}
+  .btn-g-b:hover{
+    background-color: var(--Negro);
+    color: var(--Blanco);
+  }
+.btn-simple-b{
+  color: var(--Negro);
+  transition: all 0.5s;
+  font-size: clamp(0.7rem, 0.5rem + 4vw, 1.2rem);
+}
+/*? BOTONES GENERALES */
+
+
+/** ----------------- NAV ----------------- */
+.blur-bg-nav{
+  -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: #ffffff25;
+}
+.side-nav{
+  justify-content: space-between;
+}
+/*!LEFT SIDE NAV */
+.left-side-nav{
+
+}
+  .btns-calls{
+    position: relative;
+  }
+    .logSign-btn{
+      color: var(--Negro);
+      background-color: transparent;
+      font-size: clamp(0.7rem, 0.5rem + 4vw, 1.2rem);
+      aspect-ratio: 9/1 !important;
+    }
+      .logSign-btn:nth-of-type(2) {
+        background-color: var(--Rojo);
+        color: var(--Blanco);
+        border-color: var(--Rojo) !important;
+      }
+      .logSign-btn:hover{
+        background-color: var(--Negro);
+        color: var(--Blanco);
+        border-color: transparent !important;
+      }
+  .btns-socials{
+
+  }
+    .btn-social{
+      aspect-ratio: 1/1 !important;
+    }
+
+/*!LEFT SIDE NAV */
+
+/*!RIGHT SIDE NAV */
+.right-side-nav{
+  
+}
+  .Logo-container{
+    color: var(--Rojo);
+    font-weight: bold;
+    font-size: clamp(0.7rem, 0.5rem + 4vw, 1.2rem);
+  }
+    .Logo-container:hover{
+      color: var(--Rojo);
+      font-weight: bold;
+    }
+  .btns-nav-menu{
+    position: relative;
+  }
+    .btn-nav-menu{
+      color: var(--Negro);
+      font-size: clamp(0.7rem, 0.5rem + 4vw, 1.2rem);
+      border-color: var(--Negro)  !important;
+    }
+    .btn-nav-menu:hover{
+      background-color: var(--Negro);
+      color: var(--Blanco);
+    }
+/*!RIGHT SIDE NAV */
+/** ----------------- NAV -----------------*/
+
+
+/** ----------------- HEADER -----------------*/
+.header-finde{
+  background-image: url('../public/RECURSOS/orinoco2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+  .sections-card-header{
+    width: 100%;
+    overflow: hidden;
+   
+  }
+/*!RIGHT SIDE HEADER */
+  .right-side-header{
+    justify-content: end;
+    flex-flow: column nowrap;
+    position: relative;
+  }
+
+  .words-pill-con{
+    justify-content: start;
+    flex-flow: row wrap;
+    
+  }
+    .word-pill{
+      font-size: clamp(1.5rem, 0.5rem + 2vh + 0.5vw, 4rem);
+    }
+    .cirlce-word{
+      color: var(--Blanco);
+    }
+  .text-call{
+    justify-content: start;
+  }
+  .sections-card-header{
+    
+  }
+    .sections-card-header p{
+      font-size: clamp(0.3rem, 0rem + 1.2vw, 1rem);
+    }
+  .action-call{
+    justify-content: start;
+  }
+  .categorias-cont{
+    
+    justify-content: start;
+  }
+    .btn-cat-header{
+      color: var(--Blanco);
+      font-size: clamp(0.7rem, 0.5rem + 4vw, 1.2rem);
+      aspect-ratio: 1/1;
+    }
+    .btn-cat-header:hover{
+      background-color: var(--Negro);
+      color: var(--Blanco);
+    }
+      .cat-1{
+        background-color: var(--C-Naranja);
+      }
+      .cat-2{
+        background-color: var(--C-Azul);
+      }
+      .cat-3{
+        background-color: var(--C-Morado);
+      }
+      .cat-4{
+        background-color: var(--C-Rojo);
+      }
+      .cat-5{
+        background-color: var(--C-Verde);
+      }
+      .hove-1:hover{
+        background-color: var(--C-Naranja) !important;
+        border-color: var(--C-Naranja) !important;
+      }
+      .hove-2:hover{
+        background-color: var(--C-Azul) !important;
+        border-color: var(--C-Azul) !important;
+      }
+      .hove-3:hover{
+        background-color: var(--C-Morado);
+        border-color: var(--C-Morado) !important;
+      }
+      .hove-4:hover{
+        background-color: var(--C-Rojo) !important;
+        border-color: var(--C-Rojo) !important;
+      }
+      .hove-5:hover{
+        background-color: var(--C-Verde) !important;
+        border-color: var(--C-Verde) !important;
+      }
+      .colo-1{
+        color: var(--C-Naranja);
+      }
+      .colo-2{
+        color: var(--C-Azul);
+      }
+      .colo-3{
+        color: var(--C-Morado);
+      }
+      .colo-4{
+        color: var(--C-Rojo);
+      }
+      .colo-5{
+        color: var(--C-Verde);
+      }
+/*!RIGHT SIDE HEADER */
+
+/** ----------------- HEADER -----------------*/
+
+
+
+/** ----------------- TEXT CATCH -----------------*/ 
+    .text-catch-inner{
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+    .text-catch-inner div{
+      flex-flow:  column nowrap;
+      justify-content: space-between;
+      align-items: end;
+    }
+      .text-catch-inner h4{
+        font-size: clamp(2rem, 0.5rem + 1vw + 2vh, 3rem);
+        font-weight: bold;
+        color: var(--Blanco);
+      }
+      .text-catch-inner a{
+        background-color: var(--C-NaranjaDark);
+        color: var(--Blanco);
+        font-size: clamp(2rem, 0.5rem + 6vw, 2.5rem);
+      }
+      .text-catch-inner img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+/** ----------------- TEXT CATCH -----------------*/
+
+
+
+
+/* .btn-card:nth-of-type(2) {
+  aspect-ratio: 1/1;
+  font-size: clamp(0.9rem, 0.5rem + 6vw, 1.2rem);
+} */
+/** ----------------- CATEGORIAS -----------------*/
+.categorias-cont-cool{
+  position: relative;
+  overflow: hidden;
+}
+  .container-categoria-card{
+    flex-flow: column nowrap;
+    justify-content: space-between;
+  }
+    .top-categoria-card{
+      text-align: right;
+    }
+      .top-categoria-card i{
+        font-size: clamp(1.5rem, 0.5rem + 6vw, 3rem);
+      }
+    .bottom-categoria-card{
+      
+      
+    }
+      .laryr-over{
+        flex-flow: column nowrap;
+       justify-content: space-between;
+        
+      }
+  .categoria-img-container{
+    
+  }
+    .categoria-img-container img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  .container-categoria-principla{
+    flex-flow: column-reverse nowrap;
+    justify-content: space-between;
+  }
+    .container-categoria-principla h2{
+      font-size: clamp(2rem, 0.5rem + 4vw, 4rem);
+      font-weight: bold;
+    }
+    .container-categoria-principla i{
+      font-size: clamp(2rem, 0.5rem + 8vw, 9rem);
+    }
+    .container-categoria-principla .top-categoria-card{
+      text-align: left;
+    }
+/** ----------------- CATEGORIAS -----------------*/
+
+
+/** ----------------- ACTION CALL -----------------*/
+.container-action-call{
+  background-image: url('../public/RECURSOS/Aerial\ View\ of\ Urban\ Architecture.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+  .card-container-AC-01{
+    justify-content: space-evenly;
+    flex-flow: column nowrap;
+  }
+
+  .card-container-AC-02{
+
+  }
+    .card-places-container{
+      height: clamp(10rem, 10rem + 20vw, 35rem);
+      aspect-ratio: 2/3;
+      overflow: hidden;
+      font-weight: bold;
+    }
+      .card-img-01{
+        height: 70%;
+        overflow: hidden;
+      }
+
+      .card-title-02{
+        height: 20%;
+        justify-content: start;
+        flex-flow: row nowrap;
+      }
+        .card-02-logo{
+          width: 18%;
+          aspect-ratio: 1/1;
+          overflow: hidden;
+        }
+        .card-02-name{
+          width: 78%;
+          font-size: clamp(0.5rem, 0.5rem + 3vw, 1.2rem);
+        }
+
+      .card-info-03{
+        height: 10%;
+        color: var(--Negro);
+        font-weight: 500;
+        justify-content: start;
+        flex-flow: row nowrap;
+        font-size: clamp(0.5rem, 0.5rem + 2vw, 1rem);
+      }
+        .card-03-visit{
+          margin-left: auto;
+          font-size: clamp(0.8rem, 0.5rem + 5vw, 1.5rem);
+        }
+  
+    .text-container-AC-01{
+      
+    }
+      .text-container-AC-01 h4{
+        font-size: clamp(2.5rem, 0.5rem + 6vw, 7rem);
+        font-weight: bold;
+      }
+    .btns-container-AC-01{
+      justify-content: start;
+      flex-flow: row nowrap;
+    }
+      .btn-AC{
+        background-color: var(--RojoDark);
+        color: var(--Blanco);
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: clamp(1.2rem, 0.5rem + 4vw, 2rem);
+      }
+
+  .text-container-AC-02{
+    
+  }
+    .text-container-AC-02 h4{
+      color: var(--Blanco);
+      font-size: clamp(2rem, 0.5rem + 6vw, 3rem);
+      font-weight: bold;
+    }
+  .pill-card-AC{
+    min-height: 15%;
+    justify-content: space-evenly;
+  }
+  .pill-card-AC h4{
+    font-size: clamp(2rem, 0.5rem + 6vw, 3rem);
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .btn-card-ac{
+    font-size: clamp(2rem, 0.5rem + 6vw, 2.5rem);
+  }
+
+
+  .image-container-AC-02{
+    position: relative;
+    flex-flow: column nowrap;
+    z-index: 3;
+  }
+  .is-pointer-down, .is-dragging {
+    z-index: 10;
+  }
+    .card-action-call{
+      cursor: url('../public/RECURSOS/CURSOR/uno.png'), auto !important;
+      position: absolute;
+      top: 5%;
+      right: 15%;
+    }
+      .c-a-a-02{
+        top: 10%;
+      }
+      .c-a-a-03{
+        top: 15%;
+      }
+      .c-a-a-04{
+        top: 20%;
+      }
+      .c-a-a-05{
+        top: 25%;
+      }
+
+/** ----------------- ACTION CALL -----------------*/
+
+
+/** ----------------- FEATURES -----------------*/
+.features-cont{
+  overflow:hidden
+}
+
+  .inter-card-container-feature{
+    justify-content: space-between;
+    flex-flow: column nowrap;
+  }
+    .top-card-feature{
+      justify-content: space-between;
+      color: var(--Negro);
+    }
+    .card-feature-white{
+      color: var(--Blanco);
+    }
+
+      .btn-card-feature{
+        color: var(--Negro);
+      }
+      .e-btn-card-feature {
+        background-color: var(--Rojo);
+        color: var(--Blanco);
+      }
+
+      .bottom-card-feature{
+        justify-content: space-between;
+      }
+        .feature-icons-3{
+          width: auto;
+         
+        }
+          .icon-feature{
+            aspect-ratio: 1/1;
+            font-size: clamp(1rem, 0.5rem + 4vw, 1.5rem);
+            background-color: var(--Blanco);
+            color: var(--Negro);
+          }
+          .icon-feature:nth-of-type(2) {
+            background-color: var(--Rojo);
+            color: var(--Blanco);
+          }
+
+      .e-bottom-card-feature{
+        align-items: end;
+        height: 80% !important;
+      }
+
+/** ----------------- FEATURES -----------------*/
+
+
+/** ----------------- PRICING -----------------*/
+
+.info-pricing{
+  aspect-ratio: 3/2;
+}
+  .pricing-info{
+    font-size: clamp(1rem, 0.5rem + 4vw, 1.2rem);
+  }
+  .pricing-text-bene{
+    font-size: clamp(1rem, 0.5rem + 4vw, 1.2rem);
+    font-weight: bold;
+  }
+  .info-pricing i{
+    font-size: clamp(1rem, 0.5rem + 5vw, 1.8rem);
+
+  }
+
+.container-options-pricing{
+  justify-content: space-between;
+  flex-flow: column nowrap;
+}
+  .option-pricing{
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    aspect-ratio: 5/1;
+    cursor: url('../public/RECURSOS/CURSOR/uno.png'), auto !important;
+  }
+    .active-price{
+      background-color: var(--Rojo) !important;
+      color: var(--Blanco);
+      border-color: var(--Rojo);
+    }
+    .option-pricing.active-price{
+      border-color: var(--Rojo) !important;
+    }
+    .price-pricing{
+      font-weight: bold;
+    }
+      .price-pricing p{
+        font-size: clamp(1rem, 0.5rem + 7vw, 2.3rem);
+      }
+      .price-pricing small{
+        font-size: clamp(0.3rem, 0rem + 1.2vw, 1rem);
+      }
+/** ----------------- PRICING -----------------*/
+
+
+/** ----------------- FOOTER -----------------*/
+.footer-container{
+
+}
+  .footer-cont-text{
+
+  }
+    .footer-cont-text h4{
+      font-size: clamp(2.5rem, 0.5rem + 4vw, 6rem);
+      font-weight: bolder;
+      color: var(--Blanco);      
+    }
+
+
+    .footer-form-container{
+      text-transform: uppercase;
+      justify-content: space-between;
+      align-items: start;
+      flex-flow: column nowrap;
+    }
+      .finde-footer-text{
+        font-size: clamp(2.5rem, 0.5rem + 4vw, 6rem);
+        font-weight: bolder;
+        color: #ffffff41;  
+      }
+        .input-footer-form i{
+          font-size: clamp(1.8rem, 0.5rem + 4vw, 2.5rem);
+        }
+        .btn-footer:hover{
+          background-color: var(--Negro) !important;
+        }
+    .footer-links-container{
+      flex-flow: column nowrap;
+      align-items: end;
+      justify-content: start;
+    }
+      a.footer-link{
+        color: var(--Blanco);
+        font-size: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        font-weight: bold;
+        margin: 0;
+        
+      }
+        a.footer-link:hover{
+          text-decoration-color: currentColor;
+        }
+
+/** ----------------- FOOTER -----------------*/
+
+/** ----------------- LOGIN-SIGNIN -----------------*/
+.general-option-container{
+  flex-flow: column nowrap;
+  justify-content: start;
+}
+  .logo-opcion-container{
+    justify-content: start;
+    width: fit-content;
+  }
+    .inner-logo-opcion-container{
+      justify-content: start;
+    }
+      .logo-opcion-container figure{
+        width: 10%;
+        aspect-ratio: 1/1;
+      }
+      .logo-opcion-container h4{
+        font-size: clamp(1.8rem, 0.5rem + 4vw, 2.5rem);
+        color: var(--Negro);
+      }
+  .counter-opcion-container{
+    flex-flow: row nowrap;
+    justify-content: start;
+  }
+    .counter-item{
+      height: 0.5rem;
+      max-height: 0.8rem;
+      aspect-ratio: 5/1;
+      background-color: var(--Gris);
+    }
+      .counter-pass{
+        background-color: var(--RojoDark);
+      }
+      .counter-active{
+        background-color: var(--Rojo);
+      }
+
+
+.botones-opcion-container{
+
+}
+  .option-btn-sign{
+    background-color: var(--Blanco);
+    flex-flow: column nowrap;
+    cursor: url('../public/RECURSOS/CURSOR/uno.png'), auto !important;
+  }
+    .option-btn-sign:hover{
+      background-color: var(--Rojo);
+      border-color: var(--Rojo) !important;
+      color: var(--Blanco);
+    }
+      .option-btn-sign:hover .logo-card-sign{
+        background-color: var(--Blanco);
+        color: var(--Rojo);
+      }
+
+    .option-btn-sign-active.option-btn-sign{
+      background-color: var(--Rojo);
+      border-color: var(--Rojo) !important;
+      color: var(--Blanco);
+    }
+      .option-btn-sign-active.option-btn-sign .logo-card-sign{
+        background-color: var(--Blanco);
+        color: var(--Rojo);
+      }
+    
+    .option-btn-sign .select-active-sign{
+      visibility: hidden;
+    }
+    .option-btn-sign-active .select-active-sign{
+      visibility: visible;
+    }
+   
+
+    .select-active-sign{
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 8%;
+      right: 0%;
+      aspect-ratio: 1/1;
+      color: var(--Negro) !important;
+    }
+    .logo-card-sign i{
+      font-size: clamp(1.8rem, 0.5rem + 4vw, 2.5rem);
+    }
+    .title-card-sign{
+      font-size: clamp(1.8rem, 0.5rem + 4vw, 2.5rem);
+      text-align: center;
+    }
+
+  .form-opcion-container{
+    flex-flow: column nowrap;
+    text-align: center;
+    width: 70%;
+  }
+    .form-opcion-container h4{
+      font-size: clamp(1.2rem, 0.5rem + 4vw, 2rem);
+    }
+    .btn-submit-form{
+      background-color: var(--Rojo);
+      font-size: clamp(0.7rem, 0.5rem + 4vw, 1.2rem);
+      color: var(--Blanco);
+    }
+      .btn-submit-form:hover{
+        background-color: var(--RojoDark);
+      }
+    .btn-sign-social{
+      background-color: var(--Rojo);
+      font-size: clamp(0.7rem, 0.5rem + 4vw, 1.2rem);
+      color: var(--Blanco);
+    }
+    
+
+
+  .categorias-container{
+    min-height: 60%;
+  }
+    .categoria-item{
+      width: 20%;
+      aspect-ratio: 2/3;
+      flex-flow: column nowrap;
+      position: relative;
+      cursor: url('../public/RECURSOS/CURSOR/uno.png'), auto !important;
+    }
+    .categoria-item-logo{
+      font-size: clamp(0.7rem, 0.5rem + 4vw, 1.2rem);
+    }
+    .categoria-item-title{
+      font-size: clamp(0.7rem, 0.5rem + 4vw, 1.2rem);
+      text-align: center;
+    }
+    .categoria-item .select-active-sign{
+      transform: translate(-50%, -50%);
+      top: 10%;
+      right: -7%;
+    }
+    .categoria-item .select-active-sign{
+      visibility: hidden;
+    }
+    .categoria-item-active .select-active-sign{
+      visibility: visible;
+    }
+
+
+  .nav-opcion-container{
+    margin-top: auto;
+    justify-content: start;
+    flex-flow: row nowrap;
+  }
+    .btn-g-b.border-2.btn-sign{
+      border-color: var(--Negro) !important;
+    }
+    .btn-sign-active{
+      background-color: var(--Rojo);
+      color: var(--Blanco);
+    }
+      .btn-g-b.border-2.btn-sign-active{
+        border-color: var(--Rojo) !important;
+      }
+      .btn-g-b.border-2.btn-sign-active:hover{
+        border-color: var(--Negro) !important;
+      }
+
+
+
+  .img-container-sign{
+    background-image: url('../public/RECURSOS/Serenely\ Grand\ Modern\ Atrium.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    justify-content: end;
+    align-items: end;
+  }
+
+    .card-app-sign{
+      justify-content: space-between;
+    }
+      .inner-card-app{
+       width: 80%;
+       text-align: center;
+      }
+        .in-btn-app-con{
+          border-style: dotted !important;
+        }
+        .in-btn-app-con a{
+          background-color: var(--Rojo);
+          color: var(--Blanco);
+        }
+
+        input{
+          accent-color: var(--Blanco);
+        }
+/** ----------------- LOGIN-SIGNIN -----------------*/
+
+
+
+
+/** ----------------- CATEGORY PAGES -----------------*/
+/** ----------------- HEADER CATEGORY -----------------*/
+.header-category-container{
+  
+}
+  .header-category-container-inner{
+    background-image: url(../public/RECURSOS/HEADER_CATEGORIA/head-restaurant.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    align-items: end;
+  }
+    .inner-card-CH{
+      /* height: 50%; */
+    }
+      .container-inner-inner-card-CH{
+        justify-content: end;
+        align-items: start;
+        flex-flow: column nowrap;
+      }
+        .container-inner-inner-card-CH h4{
+          margin: 0;
+          font-weight: bold;
+          color: var(--Blanco);
+        }
+        .top-inner-inner{
+          justify-content: start;
+        }
+        .down-inner-inner h4{
+
+          font-size: clamp(2rem, 0.5rem + 4vw, 3rem);
+          text-transform: uppercase;
+        }
+
+        .item-inner-inner{
+          justify-content: end;
+          flex-flow: row wrap;
+        }
+          .item-categoty-header{
+            border-color: var(--Blanco);
+
+          }
+
+      .circle-header-category{
+        width: 20%;
+        aspect-ratio: 1/1;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 30%;
+        left: 88%;
+      }
+      #header-category-container-inner-circle{
+        background-image: url(../public//RECURSOS/HEADER_CATEGORIA/circle-restaurant02.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+
+      .category-catch{
+        width: 25%;
+        height: 15vh !important;
+        
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 20%;
+        left: 15%;
+      }
+        .inner-category-catch{
+          align-items: start;
+          flex-flow: column nowrap;
+        }
+          .inner-cat-cat-01{
+            height: 50%;
+           
+          }
+            .circle-cat-cat-01{
+              width: 20%;
+              aspect-ratio: 1/1;
+            }
+            .div-cat-cat-01{
+              width: 80%;
+              border-bottom-left-radius: 0 !important;
+              transform: scale(1.05);
+            }
+          .inner-cat-cat-02{
+            height: 50%;
+            width: fit-content;
+            position: relative;
+          }
+            .ciircle-user-cat{
+              aspect-ratio: 1/1;
+            }
+
+          .corner-styled{
+            position: absolute;
+            top: 2.5%;
+            right: -20%;
+            width: 3rem;
+            aspect-ratio: 1/1;
+            background-color: var(--Blanco);
+          }
+          .corner-down::after{
+            content: '';
+            width: 100%;
+            height: 100%;
+            transform: scale(1.1);
+            position: absolute;
+            top: 6%;
+            left: 5%;
+            display: block;
+            border-top-left-radius: 100%;
+            background-color: #0593b7;
+            background: linear-gradient(-45deg, #0896ba, #0593b7);
+          }
+/** ----------------- HEADER CATEGORY -----------------*/
+
+
+/** ----------------- CATEGORY SEARCH -----------------*/
+/** ----------------- CATEGORY SEARCH -----------------*/
+
+
+/** ----------------- CATEGORY CATEGORIES -----------------*/
+.container-ctegories{
+
+}
+  .categories-card-item{
+    min-height: 15vh;
+    flex-flow: column  nowrap;
+    justify-content: space-between;
+    color: var(--Negro);
+    border-color: var(--Negro) !important;
+    background-color: var(--Blanco);
+  }
+    .categories-card-item:hover{
+      color:var(--Blanco);
+    }
+    .item-logo-filter{
+      height: 40%;
+      color: currentColor;
+    }
+      .item-logo-filter:hover{
+        background-color: transparent;
+      }
+    .item-info-filter{
+      height: 60%;
+      text-align: center;
+      flex-flow: column nowrap;
+    }
+    .active-categories-item{
+      color: var(--Blanco) !important;
+    }
+    .actCat-1{
+      background-color: var(--C-Naranja);
+      border-color:  var(--C-Naranja) !important;
+    }
+    .actCat-2{
+      background-color: var(--C-Azul); 
+      border-color:  var(--C-Azul) !important;
+    }
+    .actCat-3{
+      background-color: var(--C-Morado);
+      border-color:  var(--C-Morado) !important;
+    }
+    .actCat-4{
+      background-color: var(--C-Rojo);
+      border-color:  var(--C-Rojo) !important;
+    }
+    .actCat-5{
+      background-color: var(--C-Verde);
+      border-color:  var(--C-Verde) !important;
+    }
+    .actCat-0{
+      background-color: var(--Negro);
+      border-color:  var(--Negro) !important;
+    }
+    .hove-0:hover{
+      background-color: var(--Negro);
+    }
+
+    .down-column{
+      align-items: end;
+    }
+    .stars-filter-item{
+      
+    }
+    .stars-filter-item.categories-card-item{
+      height: 11vh;
+      min-height: 10vh;
+      aspect-ratio: 1/1;
+    }
+    .stars-filter-item > .item-logo-filter{
+      height: 50%;
+    }
+    .stars-filter-item > .item-info-filter{
+      height: 50%;
+    }
+
+  
+
+/** ----------------- CATEGORY CATEGORIES -----------------*/
+
+
+.places-cat-container{
+  min-height: 100vh;
+  height: auto;
+}
+
+  .places-cat-container > .card-places-container{
+    width: 22% !important;
+    height: auto;
+    aspect-ratio: 2/3;
+    overflow: hidden;
+    font-weight: bold;
+    float: left;
+  }
+  /* .card-places-container:hover .card-places-container:not(:hover){
+    filter: blur(5px);
+    opacity: 0.5;
+  } */
+  .places-gap{
+    width: 3%;
+  }
+  .places-column{
+    width: 22%;
+  }
+  .places-cat-container > .up-card-places-container{
+    aspect-ratio: 3/5;
+  }
+  .places-cat-container > .down-card-places-container{
+    aspect-ratio: 3/4;
+  }
+  .places-cat-container > .large-card-places-container{
+    aspect-ratio: 3/6;
+  }
+
+  .nav-mobile{
+    display: none;
+  }
+
+
+
+
+
+
+
+/** ----------------- PRODUCT PAGE -----------------*/
+
+  .menu-product-item{
+    color: var(--Blanco);
+    background-color: var(--Rojo);
+  }
+
+.menu-product-container{
+  overflow:hidden;
+  height: auto;
+  min-height: 100vh;
+  max-height: 200vh;
+}
+
+  .card-product-inner{
+    overflow: hidden;
+    position: relative;
+    justify-content: end;
+    flex-flow: column nowrap;
+  }
+    .links-product-container{
+      z-index: 2;
+      flex-flow: column nowrap;
+      justify-content: start;
+      align-items: center;
+    }
+      .link-menu-product{
+        width: 100%;
+        justify-content: space-between;
+        background-color: var(--Blanco);
+        color: var(--Negro);
+        z-index: 4;
+        overflow: hidden;
+      }
+        .normal-link-product{
+          justify-content: center;
+          background-color: var(--Rojo);
+          color: var(--Blanco);
+          width: 100%;
+          overflow: hidden;
+          aspect-ratio: 1/1;
+        }
+          .normal-link-product:hover{
+            background-color: var(--Negro);
+            color: var(--Blanco);
+          }
+        .distinct-link-product{
+          background-color: var(--Negro);
+          color: var(--Blanco);
+        }
+          .distinct-link-product  > span{
+            transform: rotate(135deg);
+            background-color: var(--Blanco);
+            color: var(--Negro);
+          }
+          .distinct-link-product:hover > span{
+            transform: rotate(180deg);
+          }
+              .distinct-link-product:hover{
+                background-color: var(--Blanco) !important;
+                color: var(--Negro) !important;
+              }
+              .distinct-link-product:hover > span{
+                background-color: var(--Negro);
+                color: var(--Blanco);
+              }
+        .accent-link-product{
+          background-color: var(--Rojo);
+          color: var(--Blanco);
+        }
+        .accent-link-product > span{
+          transform: rotate(135deg);
+        }
+        .accent-link-product:hover > span{
+          transform: rotate(180deg);
+        }
+          .accent-link-product > span{
+            background-color: var(--Blanco);
+            color: var(--Negro);
+          }
+            .accent-link-product:hover{
+              background-color: var(--Blanco);
+              color: var(--Negro);
+            }
+            .accent-link-product:hover > span{
+              background-color: var(--Negro);
+              color: var(--Blanco);
+            }
+    
+    .product-img{
+      position: absolute;
+    }
+
+    .short-info-product{
+      flex-flow: column nowrap;
+      justify-content: start;
+      color: var(--Blanco);
+    }
+      .short-info-product > div{
+        justify-content: start;
+      }
+      .short-info-product h4, h5{
+        font-weight: bold;
+        margin: 0;
+      }
+      .logo-short-info{
+        aspect-ratio: 1/1;
+        overflow: hidden;
+        width: 10%;
+      }
+    
+      .info-short-info h5{
+        font-weight: 300;
+      }
+      .direction-short-info h5{
+        font-weight: 300;
+      }
+
+      .words-short-info{
+
+      }
+        .item-word-short{
+          color: var(--Negro);
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: clamp(0.4rem,0.5rem + 2vw, 0.8rem);
+        }
+
+    .map-short-place{
+      overflow: hidden;
+      position: relative;
+      align-items: end;
+    }
+      .map-short-place iframe{
+        width: 100%;
+        height: 100%;
+      }
+      #map{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+      }
+      .popMarker{
+        width: 100%;
+        text-align: center;
+      }
+
+    .metric-container{
+      flex-flow: column nowrap;
+      justify-content: start;
+    }
+      .metric-item{
+
+      }
+      .custom-table-finde{
+        text-align: center;
+      }
+        .custom-table-finde th{
+          text-align: center;
+        }
+        table.custom-table-finde td{
+          height: 12vh;
+        }
+          .table-item-cube{
+            /* aspect-ratio: 1/1; */
+            
+            flex-flow: column nowrap;
+            background-color: var(--Gris);
+            
+            
+            cursor: url('../public/RECURSOS/CURSOR/uno.png'), auto !important;
+          }
+            .table-item-cube h6{
+              text-align: left;
+            }
+            .table-item-cube:hover{
+              transform: scale(1.1);
+            }
+            .open-cube{
+              background-color: var(--C-Verde);
+            }
+            .close-cube{
+              background-color: var(--Blanco);
+            }
+            .especial-cube{
+              background-color: var(--Negro);
+            }
+
+
+
+        .timetable-info-product{
+          flex-flow: column nowrap;
+          justify-content: space-between;
+          color: var(--Blanco);
+        }
+          .timetable-container{
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+          }
+            .timetable-item{
+              flex-flow: column nowrap;
+              justify-content: space-between;
+              background-color: var(--Gris);
+              width: calc(100% / 7.3);
+
+              color: var(--Negro);
+            }
+              .timetable-item > div{
+                flex-flow: row nowrap;
+                justify-content: space-between;
+              }
+              .label-time{
+                text-align: right;
+                margin: 0;
+                
+              }
+              .open-label{
+                background-color: var(--C-Verde);
+                color: var(--Blanco);
+              }
+              .close-label{
+                background-color: var(--C-Rojo);
+                color: var(--Blanco);
+              }
+
+
+  .inter-card-container-feature{
+    justify-content: space-between;
+    flex-flow: column nowrap;
+  }
+
+
+    .top-card-feature{
+      justify-content: space-between;
+      color: var(--Negro);
+    }
+    .card-feature-white{
+      color: var(--Blanco);
+    }
+
+
+
+
+      .btn-card-feature{
+        color: var(--Negro);
+      }
+      .e-btn-card-feature {
+        background-color: var(--Rojo);
+        color: var(--Blanco);
+      }
+
+      .bottom-card-feature{
+        justify-content: space-between;
+      }
+        .feature-icons-3{
+          width: auto;
+         
+        }
+          .icon-feature{
+            aspect-ratio: 1/1;
+            font-size: clamp(1rem, 0.5rem + 4vw, 1.5rem);
+            background-color: var(--Blanco);
+            color: var(--Negro);
+          }
+          .icon-feature:nth-of-type(2) {
+            background-color: var(--Rojo);
+            color: var(--Blanco);
+          }
+
+      .e-bottom-card-feature{
+        align-items: end;
+        height: 80% !important;
+      }
+
+/** ----------------- PRODUCT PAGE -----------------*/
+
+
+
+
+/** ----------------- PRODUCT USER INFORMATION -----------------*/
+
+.menu-user-info{
+  flex-flow: column nowrap;
+  justify-content: start;
+}
+  
+  .menu-user-item-info{
+    flex-flow: row nowrap;
+    justify-content: start;
+
+    background-color: var(--Blanco);
+    color: var(--Negro);
+    border-color: var(--Negro) !important;
+    height: 10vh;
+  }
+    .menu-user-item-info:hover{
+      border-color: var(--Negro) !important;
+    }
+    .menu-user-item-info i{
+      background-color: var(--Rojo);
+      color: var(--Blanco);
+    }
+    .menu-user-item-info:hover i{
+      background-color: var(--Blanco);
+      color: var(--Negro);
+    }
+    .menu-user-active{
+      background-color: var(--Rojo);
+      color: var(--Blanco);
+      border-color: var(--Rojo) !important; 
+    }
+    .menu-user-active i{
+      background-color: var(--Blanco);
+      color: var(--Negro);
+    }
+
+    .form-user-info{
+      flex-flow: column nowrap;
+      justify-content: start;
+    }
+  .info-header-user{
+    flex-flow: column nowrap;
+    height: 15vh;
+    font-size: clamp(0.7rem, 0.5rem + 4vw, 1.2rem);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

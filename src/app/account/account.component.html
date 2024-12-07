@@ -1,0 +1,61 @@
+<section class="container-fliud container-fluid p-4 vh-100 ">
+    <div class="row h-100">
+        <div class="col-6">
+            <div class="w-100 h-100 overflow-hidden rounded-4 position-relative d-flexeo p-2 gap-2 general-option-container" id="general-option-container">
+                <div class="logo-opcion-container  w-100 h-auto">
+                    <a href="index.html" class="links inner-logo-opcion-container d-flexeo">
+                        <figure> 
+                            <img src="./RECURSOS/LOGOS/Icono_C.png" alt="Logo FINDE" class="general-img">
+                        </figure>
+                        <h4>FINDE</h4>
+                    </a>
+                </div>
+                <div class="counter-opcion-container d-flexeo gap-2 w-100 h-auto" id="counter-opcion-container">
+                    <div class="counter-item rounded-pill p-1 counter-pass"></div>
+                    <div class="counter-item rounded-pill p-1 counter-active"></div>
+                    <div class="counter-item rounded-pill p-1"></div>
+                    <div class="counter-item rounded-pill p-1"></div>
+                </div>
+                
+                <div class="form-opcion-container h-auto d-flexeo gap-2" id="form-opcion-container-ingreso">
+                    <h4 class="w-100">Ingresa a tu cuenta.</h4>
+                    <form class="w-100" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <input type="email" placeholder="Correo electrónico"
+                            formControlName="email"
+                            class="form-control rounded-4 p-3 focus-ring focus-ring-light border" id="inputEmailRe" >
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" id="inputPasswordRe" placeholder="Contraseña" autocomplete="false"
+                            formControlName="password"
+                            class="form-control rounded-4 p-3 focus-ring focus-ring-light border" >
+                        </div>
+                       <!--  <div class="alert alert-danger" *ngIf="errorMessage">
+                            {{errorMessage}}
+                        </div> -->
+                        <button type="submit" class="rounded-pill py-2 border border-0 w-100 btn-submit-form trans">Ingresar</button>
+                    </form>
+                    <div>
+                        <p>Ingresa de otra forma:</p>
+                        <div class="d-flexeo gap-2 mb-3">
+                            <button class="rounded-circle border border-0 d-flexeo p-3 btn-g-b btn-sign-social"><i class='bx bxl-google' ></i></button>
+                            <button class="rounded-circle border border-0 d-flexeo p-3 btn-g-b btn-sign-social"><i class='bx bxl-microsoft' ></i></button>
+                            <button class="rounded-circle border border-0 d-flexeo p-3 btn-g-b btn-sign-social"><i class='bx bxl-facebook' ></i></button>
+                        </div>
+                        <p>Al crear o ingresar a una cuenta acceptas los <a href="" class="links">Terminos y Condiciones</a>, <a href="" class="links">Políticas y Restricciones</a>.</p>
+                    </div>
+                </div>
+
+                <div class="nav-opcion-container d-flexeo gap-2 w-100 h-auto">
+                    <a href="/first" class="links rounded-pill btn-g-b py-2 px-4 border border-2 btn-sign" >Regresar</a>
+                    <!-- <a href="/home" class="links rounded-pill btn-g-b py-2 px-4 border border-2 btn-sign btn-sign-active btn-sign-active">Siguiente</a> -->
+                </div>
+            </div>
+
+        </div>
+        <div class="col-6">
+            <app-lateral-sign></app-lateral-sign>
+        </div>
+    </div>
+</section>
+

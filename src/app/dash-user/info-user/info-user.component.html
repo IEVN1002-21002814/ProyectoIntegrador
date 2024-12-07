@@ -1,0 +1,209 @@
+
+<app-nav></app-nav>
+
+<section class="container-fliud p-4 vh-90 overflow-hidden" style="margin-top: 4.25rem;">
+    <div class="row h-100">
+        <div class="col-3">
+            <div class="w-100 h-100 overflow-hidden position-relative d-flexeo gap-2 menu-user-info">
+                <div class="w-100 rounded-4 py-2 px-3 d-flexeo gap-2 info-header-user border border-2 trans bg-gris">
+                   <small class="w-100 m-0">Bienvenido: <br><b>{{this.usuario.usuario.nombre}}</b></small>
+                    
+                </div>
+                <button (click)="btnInformacion()" [ngClass]="{'menu-user-active': btninfo}" class="w-100 btn-g-b rounded-pill py-2 px-3 d-flexeo gap-2 menu-user-item-info border border-2 trans">
+                    <i class='bx bxs-user rounded-circle d-flexeo p-2 trans'></i> Información
+                </button>
+                <!-- <button class="w-100 btn-g-b rounded-pill py-2 px-3 d-flexeo gap-2 menu-user-item-info border border-2 trans">
+                    <i class='bx bxs-bell rounded-circle d-flexeo p-2 trans'></i> Notificaciones
+                </button> -->
+                <button (click)="btnSeguridad()" [ngClass]="{'menu-user-active': btnsecure}" class="w-100 btn-g-b rounded-pill py-2 px-3 d-flexeo gap-2 menu-user-item-info border border-2 trans">
+                   <i class='bx bxs-lock-alt rounded-circle d-flexeo p-2 trans'></i> Seguridad
+                </button>
+                <button (click)="btnSuscripcion()" [ngClass]="{'menu-user-active': btnsuscri}" class="w-100 btn-g-b rounded-pill py-2 px-3 d-flexeo gap-2 menu-user-item-info border border-2 trans">
+                    <i class='bx bxs-wallet rounded-circle d-flexeo p-2 trans'></i> Planes y Suscripciones
+                </button>
+                <button (click)="cerrarSesion()" class="w-100 btn-g-b rounded-pill py-2 px-3 d-flexeo gap-2 menu-user-item-info border border-2 trans">
+                    <i class='bx bx-arrow-back rounded-circle d-flexeo p-2 trans'></i> Cerrar Sesión
+                </button>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="w-100 h-100 overflow-hidden position-relative d-flexeo gap-2 form-user-info" *ngIf="btninfo">
+                <div class="w-100 bg-gris p-3 rounded-4 user-form-container">
+                    <h4 class="w-100 mb-2">Información de Usuario:</h4>
+                    <form class="w-100 h-100" [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-6 mb-4">
+                                <label for="fullName" class="form-label ms-1">Nombre Completo</label>
+                                <input type="hidden" formControlName="id">
+                                <input type="text" placeholder="Nombre Completo" autocomplete="off"
+                                formControlName="fullName"
+                                class="form-control rounded-4 p-3 focus-ring focus-ring-light border">
+                                <div class="form-text ms-1">
+                                    Ingresa tu nombre completo, nombres y apellidos.
+                                </div>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <label for="email" class="form-label ms-1">Correo Electrónico</label>
+                                <input type="email" placeholder="Correo Electrónico" autocomplete="off"
+                                formControlName="email"
+                                class="form-control rounded-4 p-3 focus-ring focus-ring-light border">
+                                <div class="form-text ms-1">
+                                    Ingresa un correo electónico valido. Ejemplo: ejemplo&#64;correo.com.
+                                </div>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <label for="genere" class="form-label ms-1">Genero</label>
+                                <select formControlName="genero" class="form-select rounded-4 p-3 focus-ring focus-ring-light border">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                  </select>
+                                <div class="form-text ms-1">
+                                    Especifica tu genero de nacimiento.
+                                </div>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <label for="tel" class="form-label ms-1">Teléfono</label>
+                                <input type="text" placeholder="023-098-0296" autocomplete="off"
+                                formControlName="telefono"
+                                class="form-control rounded-4 p-3 focus-ring focus-ring-light border">
+                                <div class="form-text ms-1">
+                                    Ingresa un número que contenga 10 dígitos, no es necesario agregar lada +(52).
+                                </div>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <label for="tel" class="form-label ms-1">Fecha de nacimiento</label>
+                                <input type="date"
+                                formControlName="datebirth" autocomplete="off"
+                                class="form-control rounded-4 p-3 focus-ring focus-ring-light border">
+                                <div class="form-text ms-1">
+                                    Tienes que ser mayor de edad para crear una cuenta. 
+                                </div>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <label for="direccion" class="form-label ms-1">Dirección</label>
+                                <input type="text" placeholder="Dirección"
+                                formControlName="direccion" autocomplete="off"
+                                class="form-control rounded-4 p-3 focus-ring focus-ring-light border">
+                                <div class="form-text ms-1">
+                                    Especifica colonia, calle, no exterior e  interior de ser necesario.
+                                </div>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <label for="ciudad" class="form-label ms-1">Estado:</label>
+                                <select formControlName="estado" class="form-select rounded-4 p-3 focus-ring focus-ring-light border">
+                                    <option value="Aguascalientes">Aguascalientes</option>
+                                    <option value="Baja California">Baja California</option>
+                                    <option value="Baja California Sur">Baja California Sur</option>
+                                    <option value="Campeche">Campeche</option>
+                                    <option value="Chiapas">Chiapas</option>
+                                    <option value="Chihuahua">Chihuahua</option>
+                                    <option value="Ciudad de México">Ciudad de México</option>
+                                    <option value="Coahuila de Zaragoza">Coahuila de Zaragoza</option>
+                                    <option value="Colima">Colima</option>
+                                    <option value="Durango">Durango</option>
+                                    <option value="Guanajuato">Guanajuato</option>
+                                    <option value="Guerrero">Guerrero</option>
+                                    <option value="Hidalgo">Hidalgo</option>
+                                    <option value="Jalisco">Jalisco</option>
+                                    <option value="Estado de México">Estado de México</option>
+                                    <option value="Michoacán de Ocampo">Michoacán de Ocampo</option>
+                                    <option value="Morelos">Morelos</option>
+                                    <option value="Nayarit">Nayarit</option>
+                                    <option value="Nuevo León">Nuevo León</option>
+                                    <option value="Oaxaca">Oaxaca</option>
+                                    <option value="Puebla">Puebla</option>
+                                    <option value="Querétaro">Querétaro</option>
+                                    <option value="Quintana Roo">Quintana Roo</option>
+                                    <option value="San Luis Potosí">San Luis Potosí</option>
+                                    <option value="Sinaloa">Sinaloa</option>
+                                    <option value="Sonora">Sonora</option>
+                                    <option value="Tabasco">Tabasco</option>
+                                    <option value="Tamaulipas">Tamaulipas</option>
+                                    <option value="Tlaxcala">Tlaxcala</option>
+                                    <option value="Veracruz">Veracruz</option>
+                                    <option value="Yucatán">Yucatán</option>
+                                    <option value="Zacatecas">Zacatecas</option>
+                                  </select>
+                                  <div class="form-text ms-1">
+                                    Especifica el estado de residencia.
+                                </div>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <label for="postal" class="form-label ms-1">Código Postal:</label>
+                                <input type="text" placeholder="Código Postal"
+                                formControlName="cp" autocomplete="off"
+                                class="form-control rounded-4 p-3 focus-ring focus-ring-light border">
+                                <div class="form-text ms-1">
+                                    Clave única compuesta por 5 dígitos. 
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="rounded-pill py-2 border border-0 w-100 btn-submit-form trans">Actualizar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="w-100 h-100 overflow-hidden position-relative d-flexeo gap-2 form-user-info" *ngIf="btnsuscri">
+                <div class="w-100 bg-gris p-3 rounded-4 user-form-container">
+                    <h4 class="w-100 mb-2">Planes y Suscripciones:</h4>
+                    <form class="w-100 h-100" [formGroup]="updateSusc" (ngSubmit)="suscriSubmit()">
+                        <div class="row">
+                            <div class="col-6 mb-4">
+                                <label for="fullName" class="form-label ms-1">Suscripción</label>
+                                <input type="hidden" formControlName="id">
+                                <select formControlName="suscripcion" class="form-select rounded-4 p-3 focus-ring focus-ring-light border">
+                                    <option value="Pago">Pago</option>
+                                    <option value="Gratuito">Gratuito</option>
+                                  </select>
+                                <div class="form-text ms-1">
+                                    Especifica el tipo de suscripción.
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <button type="submit" class="rounded-pill py-2 border border-0 w-100 btn-submit-form trans">Actualizar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="w-100 h-100 overflow-hidden position-relative d-flexeo gap-2 form-user-info" *ngIf="btnsecure">
+                <div class="w-100 bg-gris p-3 rounded-4 user-form-container">
+                    <h4 class="w-100 mb-2">Seguridad y Contraseñas:</h4>
+                    <form class="w-100 h-100" [formGroup]="updatePass" (ngSubmit)="passSubmit()">
+                        <div class="row">
+                            <div class="col-6 mb-4">
+                                <label for="fullName" class="form-label ms-1">Contraseña</label>
+                                <input type="hidden" formControlName="id">
+                                <input type="text" placeholder="Nueva Contraseña" autocomplete="off" readonly
+                                formControlName="oldpass"
+                                class="form-control rounded-4 p-3 focus-ring focus-ring-light border">
+                                <div class="form-text ms-1">
+                                    Contraseña, no la compartas con nadie.
+                                </div>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <label for="fullName" class="form-label ms-1">Nueva Contraseña</label>
+                                <input type="password" placeholder="Nueva Contraseña" autocomplete="off"
+                                formControlName="newpass"
+                                class="form-control rounded-4 p-3 focus-ring focus-ring-light border">
+                                <div class="form-text ms-1">
+                                    Ingresa tu nueva contraseña y no la compartas con nadie.
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <button type="submit" class="rounded-pill py-2 border border-0 w-100 btn-submit-form trans">Actualizar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<app-footer></app-footer>
